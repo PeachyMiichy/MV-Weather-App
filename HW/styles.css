@@ -76,12 +76,6 @@ body {
   cursor: pointer;
 }
 
-#curr-emoji {
-  margin: 0 auto;
-  text-align: center;
-  font-size: 100px;
-}
-
 .card-header {
   font-size: 15px;
   text-align: center;
