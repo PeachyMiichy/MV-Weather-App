@@ -69,13 +69,6 @@ body {
   top: -44px;
 }
 
-#cel:hover,
-#fah:hover {
-  color: blue;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .card-header {
   font-size: 15px;
   text-align: center;

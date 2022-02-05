@@ -86,8 +86,23 @@ function retrievePosition1() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
+function convertCelcius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#currTemp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function convertFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#currTemp");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
 let curButton = document.querySelector(".btn-info");
 curButton.addEventListener("click", retrievePosition1);
+
+let celsiusTemperature = null;
 
 let now = new Date();
 formatDate(now);
@@ -95,3 +110,8 @@ formatDate(now);
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 form.addEventListener("click", search);
+
+let fahButton = document.querySelector("#fah");
+fahButton.addEventListener("click", convertFahrenheit);
+let celButton = document.querySelector("#cel");
+celButton.addEventListener("click", convertCelcius);
