@@ -9,11 +9,6 @@ ul.weather-forecast {
   padding-left: 0px;
 }
 
-ul {
-  list-style-type: none;
-  text-align: center;
-}
-
 body {
   font-weight: 500;
   text-transform: capitalize;
@@ -74,6 +69,10 @@ body {
   text-align: center;
 }
 
-.forecast-emoji {
+.tempIcon {
   font-size: 40px;
+}
+
+#tiny-temp-icon {
+  text-align: right;
 }

@@ -44,6 +44,23 @@ function formatDate(now) {
   currTime.innerHTML = time;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function returnDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let dd = date.getDate() + 1;
+  let mm = date.getMonth() + 1;
+  let forecastDate = `${dd}/${mm}`;
+
+  return forecastDate;
+}
+
 function showWeather(response) {
   let temperatureElement = document.querySelector("#currTemp");
   let cityElement = document.querySelector("#location");
@@ -65,6 +82,8 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  console.log(response.data.coord);
+  getForecast(response.data.coord);
 }
 
 function search(event) {
@@ -84,6 +103,42 @@ function retrievePosition(position) {
 
 function retrievePosition1() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
+}
+
+function getForecast(coord) {
+  let apiKey = "48571143cbf4c6549c7ce57d24d91240";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class = "row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col forecast-col">
+  <span class="card" style="width: 6rem">
+    <div class="card-header">
+      <strong>${formatDay(forecastDay.dt)}</strong>
+      <br />
+      ${returnDate(forecastDay.dt)}
+    </div>
+    <img class = "tiny-temp-icon"
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="50"
+        />
+  </span>
+</div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function convertCelcius(event) {
