@@ -163,7 +163,7 @@ function convertFahrenheit(event) {
 }
 retrievePosition1();
 
-let curButton = document.querySelector(".btn-info");
+let curButton = document.querySelector(".btn-my-location");
 curButton.addEventListener("click", retrievePosition1);
 
 let celsiusTemperature = null;
