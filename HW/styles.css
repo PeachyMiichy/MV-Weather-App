@@ -1,3 +1,15 @@
+body {
+  max-width: 100%;
+}
+
+.card {
+  background: linear-gradient(
+    179.4deg,
+    rgba(253, 240, 233, 0.7) 2.2%,
+    rgba(255, 194, 203, 0.7) 96.2%
+  );
+}
+
 .outline {
   margin: 0 auto;
   padding: 20px;
@@ -37,6 +49,12 @@ body {
 
 .col-sm-6 {
   padding-bottom: 20px;
+}
+
+.left-card,
+.right-card,
+.forecast-card {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .btn {
