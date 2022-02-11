@@ -120,19 +120,27 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `<div class="col forecast-col">
-  <span class="card" style="width: 6rem">
-    <div class="card-header">
-      <strong>${formatDay(forecastDay.dt)}</strong>
-      <br />
-      ${returnDate(forecastDay.dt)}
-    </div>
-    <img class = "tiny-temp-icon"
-          src="http://openweathermap.org/img/wn/${
-            forecastDay.weather[0].icon
-          }@2x.png"
+        <span class="card" style="width: 6rem">
+        <div class="card-header">
+       <strong>${formatDay(forecastDay.dt)}</strong>
+       <br />
+       ${returnDate(forecastDay.dt)}
+       </div>
+       <img
+        src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png"
           alt=""
-          width="50"
+          class = "center"
         />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> ${Math.round(
+            forecastDay.temp.max
+          )}° </span>
+          <span class="weather-forecast-temperature-min"> ${Math.round(
+            forecastDay.temp.min
+          )}° </span>
+        </div>
   </span>
 </div>`;
     }
@@ -153,6 +161,7 @@ function convertFahrenheit(event) {
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
+retrievePosition1();
 
 let curButton = document.querySelector(".btn-info");
 curButton.addEventListener("click", retrievePosition1);
@@ -164,7 +173,7 @@ formatDate(now);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
-form.addEventListener("click", search);
+form.addEventListener("DOMContentLoaded", search);
 
 let fahButton = document.querySelector("#fah");
 fahButton.addEventListener("click", convertFahrenheit);

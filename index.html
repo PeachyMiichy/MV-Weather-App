@@ -17,14 +17,34 @@
   <body>
     <div class="container">
       <div class="card outline" style="width: 40rem">
+        <form class="search" id="search-form">
+          <input
+            type="text"
+            placeholder="Weather in..."
+            autofocus="on"
+            autocomplete="off"
+            style="height: 40px; resize: horizontal; width: 60%"
+            id="place"
+          />
+          <button type="button" class="btn btn-primary">Search</button>
+          <button type="button" class="btn btn-info">My Location</button>
+        </form>
         <div class="row">
           <div class="col-sm-6">
             <div class="card left-card">
+              <ul class="weather-forecast">
+                <h1 id="location">France</h1>
+                <img src="" id="tempIcon" />
+                <li id="day"><strong>Thursday</strong></li>
+                <span id="date">16/12/2021</span>
+                <li id="time">10:30AM</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card right-card">
               <div class="card-body">
                 <ul class="weather-forecast">
-                  <li id="day"><strong>Thursday</strong></li>
-                  <span id="date">16/12/2021</span>
-                  <li id="time">10:30AM</li>
                   <li id="currTemp">17</li>
                   <span class="unit">
                     <a id="cel">°C</a> |<a id="fah">°F</a>
@@ -36,34 +56,19 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6">
-            <div class="card right-card">
-              <form class="search" id="search-form">
-                <input
-                  type="text"
-                  placeholder="Weather in..."
-                  autofocus="on"
-                  autocomplete="off"
-                  style="height: 40px"
-                  id="place"
-                />
-                <button type="button" class="btn btn-primary">🔍</button>
-                <button type="button" class="btn btn-info">Current</button>
-                <h1 id="location">France</h1>
-                <img src="" id="tempIcon" />
-              </form>
-            </div>
-          </div>
         </div>
-        <div id="forecast">This is the forcast area</div>
+        <div id="forecast"></div>
+        <p id="src-code-sign-off">
+          <a
+            href="https://github.com/PeachyMiichy/MV-Weather-App"
+            target="_blank"
+            >Open Source Code</a
+          >
+          by Michelle Vong
+        </p>
       </div>
     </div>
-    <p id="src-code-sign-off">
-      <a href="https://github.com/PeachyMiichy/MV-Weather-App" target="_blank"
-        >Open Source Code</a
-      >
-      by Michelle Vong
-    </p>
+
     <script src="HW/index.js"></script>
   </body>
 </html>

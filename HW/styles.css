@@ -3,10 +3,10 @@
   padding: 20px;
 }
 
-ul.weather-forecast {
+ul {
   list-style-type: none;
   text-align: left;
-  padding-left: 0px;
+  padding-left: 10px;
 }
 
 body {
@@ -28,29 +28,23 @@ body {
 
 #src-code-sign-off {
   text-align: center;
+  padding-top: 20px;
 }
 
-.left-card {
-  width: 90%;
-}
-
-.right-card {
-  position: relative;
-  width: 115%;
-  left: -40px;
-}
 .search {
-  padding: 10px 0px 0px 10px;
+  padding: 0px 20px 20px 0px;
 }
 
 .col-sm-6 {
   padding-bottom: 20px;
 }
 
-.btn-info {
-  width: 60px;
+.btn {
+  width: 90px;
   height: 37px;
   font-size: 10px;
+  position: relative;
+  top: -2px;
 }
 
 #location {
@@ -64,15 +58,14 @@ body {
   top: -44px;
 }
 
-.card-header {
-  font-size: 15px;
-  text-align: center;
-}
-
 .tempIcon {
   font-size: 40px;
 }
 
-#tiny-temp-icon {
-  text-align: right;
+.forecast-col {
+  text-align: center;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 50%;
 }
