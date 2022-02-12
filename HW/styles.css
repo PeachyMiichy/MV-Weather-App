@@ -1,5 +1,6 @@
-body {
+.container {
   max-width: 100%;
+  margin: 0 auto;
 }
 
 .card {
@@ -52,7 +53,10 @@ body {
 }
 
 .left-card,
-.right-card,
+.right-card {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .forecast-card {
   background: rgba(255, 255, 255, 0.1);
 }
