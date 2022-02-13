@@ -173,7 +173,7 @@ formatDate(now);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
-form.addEventListener("DOMContentLoaded", search);
+form.addEventListener("click", search);
 
 let fahButton = document.querySelector("#fah");
 fahButton.addEventListener("click", convertFahrenheit);
